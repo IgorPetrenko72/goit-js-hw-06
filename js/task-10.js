@@ -12,36 +12,38 @@ const refs = {
 };
 
 refs.input.addEventListener('input', onValueOfCreateBoxes);
+refs.createBtn.addEventListener('click', onCreateBoxes);
+const boxesRef = [{
+  width: "30px",
+  height: "30px",
+},
+];
 function onValueOfCreateBoxes(amount) {
   const value = amount.currentTarget.value;
   console.log(value);
+  for (let i = 1; i < value; i += 1) {
+    const element = {
+      width: elemen[i].width.value + "10px",
+      height: elemen[i].height.value + "10px",
+    };
+    boxesRef.push(element);
+  }
 }
-refs.createBtn.addEventListener('click', onCreateBoxes);
 
- function onCreateBoxes(value) {  
+function onCreateBoxes() {
+  const createdBoxes = boxesRef.map(({ width, height }) => {
+    const createdBox = document.createElement("div");
+    createdBox.style.width = width;
+    createdBox.style.height = height;
+    createdBox.style.margin = '5px';
+    createdBox.style.backgroundColor = getRandomHexColor();
+    return createdBox;
+  });
+  refs.box.append(...createdBoxes);
   
-const createdBox = document.createElement("div");
-  createdBox.style.width = "30px";
-  createdBox.style.height = "30px";
-  createdBox.style.backgroundColor = getRandomHexColor();
-  refs.box.append(createdBox);
+};
 
-  refs.destroyBtn.addEventListener('click', destroyBoxes)
-  function destroyBoxes() {
-  createdBox.remove();
-  };
- };
-// const listEl = document.querySelector("#ingredients");
-// const createdBox = (ingredients) => {
-//   return `
-//   <div 
-//   width: 30px;
-  // height: 30px;
-  // backgroundColor: getRandomHexColor();
-//   </div>`;   
-// };
-// const ingredientsCollection = ingredients
-//   .map(makeIngredientsMarckup)
-//   .join('');
-// listEl.insertAdjacentHTML('beforeend', ingredientsCollection);  
- 
+refs.destroyBtn.addEventListener('click', destroyBoxes);
+function destroyBoxes() {
+  refs.box.replaceChildren();
+  };   

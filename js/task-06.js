@@ -1,10 +1,12 @@
-const refs = {
-    input: document.querySelector('input'),  
-};
-refs.input.addEventListener('blur', onEventBlur);
+const inputRef = document.querySelector('input');
+inputRef.addEventListener('blur', onEventBlur);
+
 function onEventBlur(event) {
-    if (event.currentTarget.value.length == refs.input.dataset.length) {
-refs.input.classList.add('valid');
-    } 
-    else refs.input.classList.add('invalid');
+    if (event.currentTarget.value.length == inputRef.dataset.length) {
+        inputRef.classList.add('valid');
+        inputRef.classList.remove('invalid');
+    }
+    else {
+        inputRef.classList.add('invalid');
+    }
 };
