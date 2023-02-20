@@ -2,13 +2,33 @@ const ingredients = [
   'Potatoes',
   'Mushrooms',
   'Garlic',
-  'Tomatos',
+  'Tomatoes',
   'Herbs',
   'Condiments',
 ];
-
 const listEl = document.querySelector("#ingredients");
 
+/*  
+  - З методом insertAdjacentHTML()
+*/
+
+// const makeIngredientsMarckup = (ingredients) => {
+//   return `
+//   <li class="item">
+//   ${ingredients}
+//   </li>`;   
+// };
+
+// const ingredientsCollection = ingredients
+//   .map(makeIngredientsMarckup)
+//   .join('');
+
+// listEl.insertAdjacentHTML('beforeend', ingredientsCollection);  
+ 
+/*  
+  - З методом append()
+*/  
+// 
 const ingPotatoes = document.createElement("li");
 ingPotatoes.textContent = "Potatoes";
 ingPotatoes.classList.add("item");
@@ -22,9 +42,9 @@ const ingGarlic = document.createElement("li");
 ingGarlic.textContent = "Garlic";
 ingGarlic.classList.add("item");
 
-const ingTomatos = document.createElement("li");
-ingTomatos.textContent = "Tomatos";
-ingTomatos.classList.add("item");
+const ingTomatoes = document.createElement("li");
+ingTomatoes.textContent = "Tomatoes";
+ingTomatoes.classList.add("item");
 
 const ingHerbs = document.createElement("li");
 ingHerbs.textContent = "Herbs";
@@ -34,4 +54,4 @@ const ingCondiments = document.createElement("li");
 ingCondiments.textContent = "Condiments";
 ingCondiments.classList.add("item");
 
-listEl.append(ingPotatoes, ingMushrooms, ingGarlic, ingTomatos, ingHerbs, ingCondiments);  
+listEl.append(ingPotatoes, ingMushrooms, ingGarlic, ingTomatoes, ingHerbs, ingCondiments);  

@@ -1,19 +1,21 @@
 const refs = {
-    form: document.querySelector('.login-form'),
+  form: document.querySelector('.login-form'),
+  objectWithData: {},
 };
 
 refs.form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  event.preventDefault();
     
   const {
     elements: { email, password }
   } = event.currentTarget;
 
-    console.log(email.value, password.value);
-     if (email.value === "" || password.value === "") {
-    return console.log("Напиши у ці прямокутнички хоть щось!");
+  if (email.value === "" || password.value === "") {
+    alert("Напиши у ці прямокутнички хоть щось!");
+    return false;
   }
 
-  console.log(`Login: ${email.value}, Password: ${password.value}`);
+  console.log(refs.objectWithData = { Login: email.value, Password: password.value});
+  
   event.currentTarget.reset();
 });

@@ -15,7 +15,9 @@ function onValueOfCreateBoxes(amount) {
   console.log(value);
 }
 refs.createBtn.addEventListener('click', onCreateBoxes);
-function onCreateBoxes(value){  
+
+ function onCreateBoxes(value) {  
+  
 const createdBox = document.createElement("div");
   createdBox.style.width = "30px";
   createdBox.style.height = "30px";
@@ -26,4 +28,18 @@ const createdBox = document.createElement("div");
   function destroyBoxes() {
   createdBox.remove();
   };
-};
+ };
+// const listEl = document.querySelector("#ingredients");
+// const createdBox = (ingredients) => {
+//   return `
+//   <div 
+//   width: 30px;
+  // height: 30px;
+  // backgroundColor: getRandomHexColor();
+//   </div>`;   
+// };
+// const ingredientsCollection = ingredients
+//   .map(makeIngredientsMarckup)
+//   .join('');
+// listEl.insertAdjacentHTML('beforeend', ingredientsCollection);  
+ 

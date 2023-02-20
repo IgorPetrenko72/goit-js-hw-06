@@ -1,32 +1,22 @@
-const categoriesEl = document.querySelectorAll(".item");
-console.log("Number of categories:", categoriesEl.length);
+const refs = {
+    categories: document.querySelectorAll(".item"),
+    categoryName: document.querySelectorAll("h2"),
+    allCategory: document.querySelector("#categories"),
+    nameOfCategories: [],
+    quantityOfElements: [],
+};
+const elementsRef = refs.allCategory.querySelectorAll("ul");
 
-const categoryName = document.querySelectorAll("h2");
-const allCategory = document.querySelector("#categories");
-// console.log(allCategory);
-const elementsEl = allCategory.querySelectorAll("ul");
-// console.log(sss);
-// const ddd = sss[0].querySelectorAll("li");
-// console.log(ddd);
+refs.categoryName.forEach(category => refs.nameOfCategories.push(category.textContent));
+elementsRef.forEach(element => refs.quantityOfElements.push(element.querySelectorAll("li").length));
 
-
- categoryName.forEach(category => console.log("Category:", category.textContent));
- elementsEl.forEach(element => console.log("Elements", element.querySelectorAll("li").length));
-
-
-// const itemsAllCategory = allCategory.childNodes;
-
-// const itemsInCategoryAnimals = allCategory.firstElementChild;
-// const animalsEl = itemsInCategoryAnimals.querySelectorAll("li");
-// const itemsInCategoryProducts = allCategory.childNodes[3];
-// const productsEl = itemsInCategoryProducts.querySelectorAll("li");
-// const itemsInCategoryTechnologies = allCategory.lastElementChild;
-// const technologiesEl = itemsInCategoryTechnologies.querySelectorAll("li");
-
-// console.log("Category:", categoryName[0].textContent);
-// console.log("Elements", ddd.length);
-// console.log("Category:", categoryName[1].textContent);
-// console.log("Elements", productsEl.length);
-// console.log("Category:",categoryName[2].textContent);
-// console.log("Elements", technologiesEl.length);
- 
+console.log("Number of categories:", refs.categories.length);
+console.log('');
+console.log("Category:", refs.nameOfCategories[0]);
+console.log("Elements", refs.quantityOfElements[0]);
+console.log('');
+console.log("Category:", refs.nameOfCategories[1]);
+console.log("Elements", refs.quantityOfElements[1]);
+console.log('');
+console.log("Category:", refs.nameOfCategories[2]);
+console.log("Elements", refs.quantityOfElements[2]);
